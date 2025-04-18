@@ -2,10 +2,7 @@ package com.example.kundu.journalAppAPI.controller;
 
 
 import com.example.kundu.journalAppAPI.entity.JournalEntry;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,4 +26,10 @@ public class RestController {
         journalentries.put(myEntry.getId(), myEntry);
         return true;
     }
+
+    @GetMapping("id/{myId}")
+    public JournalEntry getJournalById(@PathVariable Long myId) {
+        return journalentries.get(myId);
+    }
+
 }
