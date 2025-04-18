@@ -32,4 +32,14 @@ public class RestController {
         return journalentries.get(myId);
     }
 
+    @DeleteMapping("id/{deleteId}")
+    public JournalEntry deleteById(@PathVariable Long deleteId) {
+        return journalentries.remove(deleteId);
+    }
+
+    @PutMapping("id/{myId}")
+    public JournalEntry updateById(@PathVariable Long myId, @RequestBody JournalEntry myEntry) {
+        return journalentries.put(myId, myEntry);
+    }
+
 }
